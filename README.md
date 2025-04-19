@@ -14,7 +14,7 @@ The implementation is influenced by:
   - Wavenet, following [DeepMind WaveNet 2016](https://arxiv.org/abs/1609.03499) (in progress...)
 
 
-<img src="/media/competition.jpg" width=600 height=400>
+<img src="/media/mlp.jpg" width=600 height=400>
 
 
 ## Topics Covered
