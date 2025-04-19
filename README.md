@@ -1,7 +1,7 @@
 # Deep Learning 101 [DL-101]
 ## Everything you need to learn to train Deep Neural Nets 
 
-The repository holds the implementation of technical concepts involved the Deep Learning domain. We opt a practical approach of learning where we create a character level generation model from scratch and use it to generate more Indian Male names from an example dataset.
+The repository holds the implementation of technical concepts involved the Deep Learning domain. We opt a practical approach of learning where we create a character level generation model from scratch and use it to generate more similar and new examples from a given dataset.
 
 ## Understanding the Problem Statement
 
