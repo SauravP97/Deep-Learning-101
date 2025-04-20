@@ -30,20 +30,21 @@ The implementation is influenced by:
 
 ## Topics Covered
 
-1. Building your Deep Neural Net architecture.
-2. Training your Neural Net
-3. Evaluating Dev and Test Losses
-4. L2 Regularization
-5. Drop-out Regularization
-6. Vanishing / Exploding Gradients
-7. Gradient Descent with Momentum
-8. RMS Prop
-9. Adam Optimization 
-10. Batch Normalization (Batch Norm)
-11. Early Stopping
-12. Conclusions
+1. Building the Deep Neural Net architecture.
+2. Training the Neural Net
+    - Evaluating Dev and Test Losses
+    - Inference (Prediction)
+3. L2 Regularization
+4. Drop-out Regularization
+5. Vanishing / Exploding Gradients
+6. Gradient Descent with Momentum
+7. RMS Prop
+8. Adam Optimization 
+9. Batch Normalization (Batch Norm)
+10. Early Stopping
+11. Conclusions
 
-## Deep Neural Net architecture
+## Building the Deep Neural Net architecture
 
 The architecture of our Deep Neural Network looks like this.
 
