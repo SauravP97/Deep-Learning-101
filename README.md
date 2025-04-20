@@ -107,3 +107,18 @@ rav shay kumar
 ```
 
 Looking at the result above, I can say the model performed pretty decently. Some names like `manoj kumar`, `ravi`, `narender` were actual names but others generations like `punal`, `prakesh kumar`, `gurvinay` shows the model still has some shortcomings.
+
+
+## L2 Regularization
+
+L2 Regularization is a regularization technique applied to the weights of a neural network. We minimize the `Loss` function by putting penalty on the `L2 Norm` or `Forbenius Norm` of the weights.
+
+```math
+L2Norm = \sum_{l=1}^L w_L^2
+```
+
+```math
+L(Ŷ, Y) = 1/m * L(Ŷ, Y) + (ƛ/2*m) * \sum_{l=1}^L w_L^2
+```
+
+where `ƛ` is the value determining the strength of the penalty. And `m` determines the training set size or the batch size.
