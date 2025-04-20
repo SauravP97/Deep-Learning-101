@@ -122,3 +122,21 @@ L(Ŷ, Y) = 1/m * L(Ŷ, Y) + (ƛ/2*m) * \sum_{l=1}^L w_L^2
 ```
 
 where `ƛ` is the value determining the strength of the penalty. And `m` determines the training set size or the batch size.
+
+## Dropout Regularization
+
+The dropout technique randomly picks neurons in the neural network and shuts them off at the time of training. Randomly different neurons can be picked at every iteration of training.
+
+Note: At the time of inference, the dropout is not applied to the neural net.
+
+We have a parameter `keep_prob` that specifies the percentage of neurons to keep active while training. Hence if `keep_prob` is set to `0.8`, this means `20%` of the neurons will be shut off randomly during training.
+
+```python
+mask = np.random.rand(a3.shape[0], a3.shape[1]) < keep_prob
+a3 = np.multiply(a3, mask)
+a3 /= keep_prob #inverted dropout
+```
+
+![dropout](./media/dropout.png)
+
+Note: We can have a lower value of keep_prob for a larger layer in the neural network and vice-versa.
