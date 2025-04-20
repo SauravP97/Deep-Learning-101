@@ -31,3 +31,24 @@ The implementation is influenced by:
 10. Batch Normalization (Batch Norm)
 11. Early Stopping
 12. Conclusions
+
+## Deep Neural Net architecture
+
+The architecture of our Deep Neural Network looks like this.
+
+```python
+[
+  Linear(N_EMBED * BLOCK_SIZE, N_HIDDEN, bias=False), BatchNorm1d(N_HIDDEN), Tanh(),
+  Linear(            N_HIDDEN, N_HIDDEN, bias=False), BatchNorm1d(N_HIDDEN), Tanh(),
+  Linear(            N_HIDDEN, N_HIDDEN, bias=False), BatchNorm1d(N_HIDDEN), Tanh(),
+  Linear(            N_HIDDEN, N_HIDDEN, bias=False), BatchNorm1d(N_HIDDEN), Tanh(),
+  Linear(            N_HIDDEN, N_HIDDEN, bias=False), BatchNorm1d(N_HIDDEN), Tanh(),
+  Linear(            N_HIDDEN, vocab_size, bias=False), BatchNorm1d(vocab_size),
+]
+```
+
+Our Layer comprises of alternating `Linear`, `Batch Norm` and `Tanh` components. The last layer has an output of `vocab_size` so that we can understand the probabilities of each character after the forward pass. Also the model learns about these prediction / probabilities during the back-prop.
+
+Let's visualize the Neural Net architecture.
+
+![neural-net-arch](./media/neural-net.png)

@@ -2,6 +2,7 @@ import pandas as pd
 import torch
 import torch.nn.functional as F
 import random
+import time
 
 from model import Linear, BatchNorm1d, Tanh
 
@@ -159,12 +160,21 @@ def execute():
     evaluate_loss('test', X_test, Y_test, layers, embeddings)
     
     generated_names = inference(layers, i_tos, embeddings)
+    command_line_print(generated_names)
     save_as_csv(generated_names)
+
+
+def command_line_print(generated_names):
+    print('Model generating more Indian names...')
+    for generated_name in generated_names:
+        print(generated_name)
+        time.sleep(1)
 
 
 def save_as_csv(generated_names):
     df = pd.DataFrame(generated_names, columns=['Name'])
     df.to_csv('../inference/generation.csv')
+
 
 def evaluate_loss(split, x, y, layers, embeddings):
     emb = embeddings[x] # (N, block_size, n_embd)
