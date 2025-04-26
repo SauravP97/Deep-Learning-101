@@ -59,3 +59,47 @@ class Tanh:
     
     def parameters(self):
         return []
+
+class Embeddings:
+    def __init__(self, n_embed, vocab_size):
+        self.weight = torch.randn((vocab_size, n_embed))
+    
+    def __call__(self, x):
+        self.out = self.weight[x]
+        return self.out
+    
+    def parameters(self):
+        return [self.weight]
+        
+
+class FlattenConsecutive:
+    def __init__(self, n):
+        self.n = n
+
+    def __call__(self, x):
+        B, T, C = x.shape
+        x = x.view(B, T // self.n, C * self.n)
+
+        if x.shape[1] == 1:
+            x = x.squeeze(1)
+
+        self.out = x
+        return self.out
+    
+    def parameters(self):
+        return []
+
+
+class Sequential:
+    def __init__(self, layers):
+        self.layers = layers
+    
+    def __call__(self, x):
+        for layer in self.layers:
+            x = layer(x)
+        
+        self.out = x
+        return self.out
+    
+    def parameters(self):
+        return [p for layer in self.layers for p in layer.parameters()]
